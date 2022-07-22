@@ -10,8 +10,11 @@ export default function App() {
 
   console.log({ data });
 
-  // Write code here.
-  //
+  useEffect(() => {
+    fetch(`https://swapi.dev/api/${dataType}/`)
+      .then(res => res.json())
+      .then(data => setData(data))
+  }, [dataType])
 
   return (
     <div>
